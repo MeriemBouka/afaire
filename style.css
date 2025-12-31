@@ -1,0 +1,138 @@
+* {
+  box-sizing: content-box;
+  font-family: "Quicksand", sans-serif;
+}
+body {
+  margin: 0;
+  height: 100%;
+  background-image: url("/images/arriere-plan1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+h1 {
+  color: #5e2f18;
+  font-family: "Great Vibes", cursive;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.container {
+  background-color: rgba(212, 175, 146, 0.8);
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.input-wrapper {
+  height: 45px;
+  border-radius: 20px;
+  padding: 5px;
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  background-color: rgb(212, 175, 146);
+  justify-content: space-between;
+}
+
+#input-tache {
+  max-width: 170px;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  background-color: rgb(212, 175, 146);
+  color: #5e2f18;
+  font-weight: 700;
+  font-size: 1em;
+  display: flex;
+  margin-left: 10px;
+}
+#ajouter {
+  height: 100%;
+  width: 80px;
+  border: none;
+  border-radius: 15px;
+  color: rgb(212, 175, 146);
+  font-weight: bolder;
+  cursor: pointer;
+  background-color: #78523d;
+  font-weight: 700;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.tache {
+  background-color: #78523d;
+  color: #d3ae91;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  height: 50px;
+}
+
+span,
+.input-modif {
+  display: inline-block;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 8px;
+}
+.input-modif {
+  background-color: #d4af92;
+  border: none;
+}
+
+.actions-modif,
+.actions-supp,
+.btn-ok,
+.btn-annule {
+  background-color: #d3ae91;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+.btn-ok {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.actions-supp {
+  margin-left: 5px;
+}
+input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d3ae91;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+input[type="checkbox"]:checked {
+  background-image: url("/images/noeud.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input[type="text"] {
+  outline: none;
+  border-radius: 10px;
+  height: 30px;
+}
