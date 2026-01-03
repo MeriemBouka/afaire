@@ -1,30 +1,50 @@
+:root {
+  --bg-image: url("./images/arriere-plan1.jpg");
+  --container-bg: rgba(212, 175, 146, 0.8);
+  --input-wrapper-bg: rgb(212, 175, 146);
+  --input-bg: rgb(212, 175, 146);
+  --input-color: #5e2f18;
+  --button-bg: #78523d;
+  --button-color: rgb(212, 175, 146);
+  --tache-bg: #78523d;
+  --tache-color: #d3ae91;
+  --title-color: #5e2f18;
+  --actions-bg: #d3ae91;
+}
+
 * {
   box-sizing: content-box;
   font-family: "Quicksand", sans-serif;
 }
+
 body {
   margin: 0;
   height: 100%;
-  background-image: url("/afaire/images/arriere-plan1.jpg");
+  background-image: var(--bg-image);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  transition: background 0.5s ease;
 }
+
 h1 {
-  color: #5e2f18;
+  color: var(--title-color);
   font-family: "Great Vibes", cursive;
   font-size: 3rem;
   text-align: center;
+  transition: color 0.3s ease;
 }
 
 .container {
-  background-color: rgba(212, 175, 146, 0.8);
+  background-color: var(--container-bg);
   width: 60%;
   margin: auto;
   margin-top: 50px;
   padding: 20px;
   border-radius: 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
 }
 
 .input-wrapper {
@@ -34,8 +54,9 @@ h1 {
   box-sizing: content-box;
   display: flex;
   align-items: center;
-  background-color: rgb(212, 175, 146);
+  background-color: var(--input-wrapper-bg);
   justify-content: space-between;
+  transition: background-color 0.3s ease;
 }
 
 #input-tache {
@@ -44,34 +65,46 @@ h1 {
   border: none;
   outline: none;
   padding-left: 15px;
-  background-color: rgb(212, 175, 146);
-  color: #5e2f18;
+  background-color: var(--input-bg);
+  color: var(--input-color);
   font-weight: 700;
   font-size: 1em;
   display: flex;
   margin-left: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+#input-tache::placeholder {
+  color: var(--input-color);
+  opacity: 0.6;
+}
+
 #ajouter {
   height: 100%;
   width: 80px;
   border: none;
   border-radius: 15px;
-  color: rgb(212, 175, 146);
+  color: var(--button-color);
   font-weight: bolder;
   cursor: pointer;
-  background-color: #78523d;
+  background-color: var(--button-bg);
   font-weight: 700;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+}
+
+#ajouter:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .tache {
-  background-color: #78523d;
-  color: #d3ae91;
+  background-color: var(--tache-bg);
+  color: var(--tache-color);
   padding: 15px;
   margin: 20px;
   border-radius: 20px;
@@ -81,6 +114,7 @@ h1 {
   justify-content: space-between;
   padding: 5px 10px;
   height: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 span,
@@ -93,18 +127,30 @@ span,
   margin-left: 8px;
 }
 .input-modif {
-  background-color: #d4af92;
+  background-color: var(--actions-bg);
   border: none;
+  color: var(--input-color);
+  transition: background-color 0.3s ease;
 }
 
 .actions-modif,
 .actions-supp,
 .btn-ok,
 .btn-annule {
-  background-color: #d3ae91;
+  background-color: var(--actions-bg);
   border: none;
   padding: 5px;
   border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.actions-modif:hover,
+.actions-supp:hover,
+.btn-ok:hover,
+.btn-annule:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .btn-ok {
   margin-left: 5px;
@@ -118,21 +164,76 @@ input[type="checkbox"] {
   appearance: none;
   width: 18px;
   height: 18px;
-  border: 2px solid #d3ae91;
+  border: 2px solid var(--tache-color);
   border-radius: 4px;
   cursor: pointer;
   flex-shrink: 0;
+  transition: border-color 0.3s ease;
 }
 
 input[type="checkbox"]:checked {
-  background-image: url("/afaire/images/noeud.png");
+  background-image: url("./images/noeud.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+/* Checkmark blanc pour le thème noir & blanc */
+.theme-blackwhite input[type="checkbox"]:checked {
+  background-image: none;
+  background-color: var(--tache-bg);
+  position: relative;
+}
+
+.theme-blackwhite input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 input[type="text"] {
   outline: none;
   border-radius: 10px;
   height: 30px;
+}
+
+/* Theme Switcher Button */
+#theme-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 10;
+  padding: 0;
+}
+
+#theme-button svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+#theme-button:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#theme-button:active {
+  transform: scale(0.95);
 }

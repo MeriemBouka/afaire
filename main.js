@@ -1,11 +1,16 @@
 import ListeTaches from "./modules/ListeTaches.js";
+import ThemeManager from "./modules/ThemeManager.js";
 
 // Crée l’instance principale de la liste
 const liste = new ListeTaches();
 
+// Crée l'instance du gestionnaire de thèmes
+const themeManager = new ThemeManager();
+
 // Récupère les éléments du DOM
 const inputTache = document.getElementById("input-tache");
 const btnAjouter = document.getElementById("ajouter");
+const btnTheme = document.getElementById("theme-button");
 
 // Quand on clique sur "Ajouter"
 btnAjouter.addEventListener("click", () => {
@@ -20,4 +25,9 @@ inputTache.addEventListener("keypress", (e) => {
     liste.ajouter(inputTache.value);
     inputTache.value = "";
   }
+});
+
+// Changement de thème
+btnTheme.addEventListener("click", () => {
+  themeManager.changerTheme();
 });
