@@ -127,21 +127,24 @@ span,
   margin-left: 8px;
 }
 .input-modif {
-  background-color: var(--actions-bg);
+  background-color: var(--button-bg);
   border: none;
-  color: var(--input-color);
-  transition: background-color 0.3s ease;
+  color: var(--button-color);
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .actions-modif,
 .actions-supp,
 .btn-ok,
 .btn-annule {
-  background-color: var(--actions-bg);
+  background-color: var(--button-bg);
+  color: var(--button-color);
   border: none;
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: 700;
   transition: all 0.3s ease;
 }
 

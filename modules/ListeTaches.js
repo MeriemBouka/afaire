@@ -51,7 +51,13 @@ export default class ListeTaches {
   afficher() {
     this.container.innerHTML = "";
 
-    this.taches.forEach((tache) => {
+    // Trier les tâches : non terminées d'abord, puis terminées
+    const tachesTriees = [...this.taches].sort((a, b) => {
+      if (a.termine === b.termine) return 0;
+      return a.termine ? 1 : -1;
+    });
+
+    tachesTriees.forEach((tache) => {
       const div = document.createElement("div");
       div.className = "tache";
 
